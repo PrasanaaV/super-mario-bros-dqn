@@ -30,6 +30,7 @@ def update_graph(model, target_model, optimizer, replay_buffer, args, device,
 def test_new_model(model, environment, info, action_space):
     save(model.state_dict(), join(PRETRAINED_MODELS, '%s.dat' % environment))
     print('Testing model...')
+    print('Pretrained model : ' + str(PRETRAINED_MODELS))
     flag = test(environment, action_space, info.new_best_counter)
     if flag:
         copyfile(join(PRETRAINED_MODELS, '%s.dat' % environment),
